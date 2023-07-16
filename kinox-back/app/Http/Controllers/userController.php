@@ -4,9 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Http\Requests\CreateUserRequest;
+use App\Http\Requests\UpdateUserRequest;
 use App\Services\CreateUserService;
+use App\Services\DeleteUserService;
 use App\Services\GetAllUsersService;
 use App\Services\GetUserByIdService;
+use App\Services\UpdateUserService;
 use Illuminate\Http\Request;
 
 class UserController extends Controller{
@@ -29,5 +32,15 @@ class UserController extends Controller{
 
         return $getUserByIdService->execute($id);
     }
+
+    public function update(UpdateUserRequest $request, string $id){
+        
+        $UpdateUserService = new UpdateUserService();
+        return $UpdateUserService->execute($request->all(),$id);
+    }
+    public function delete(string $id){
+        
+        $DeleteUserService = new DeleteUserService();
+        return $DeleteUserService->execute($id);
+    }
 }
-// return User::create($request->all());
