@@ -2,6 +2,7 @@
 
 namespace App\Exceptions;
 
+use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Illuminate\Validation\ValidationException;
 
@@ -46,5 +47,13 @@ class Handler extends ExceptionHandler
         return response()->json([
            'message' => 'Ocorreu um erro interno no servidor'
         ], 500);
+
+        if($error instanceof AuthorizationException) {
+            return response()->json([
+                'errors' => 'Usuario não autorizado'
+            ], 403);
+        };
+
     }
+    
 }

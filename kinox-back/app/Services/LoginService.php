@@ -10,7 +10,6 @@ use Illuminate\Support\Facades\Log;
 
 class LoginService {
     public function execute(array $data) {
-        Log::debug('Service Login');
 
         if(!$token = auth()->attempt($data)) {
             throw new AppError('Email ou senha incorretos', 401);
@@ -20,9 +19,12 @@ class LoginService {
     }
 
     private function responseToken($token) {
+        $user = auth()->user();
+        $userId = $user->id;
         return response()->json([
             'token' => $token,
-            'user' => auth()->user()
+            'user_id' => $userId,
+            'user' => $user
         ]);
     }
 }

@@ -12,16 +12,16 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('curriculum_experience', function (Blueprint $table) {
-            $table->uuid('id');
-            $table->primary('id');
+            $table->uuid('id')->primary();
 
+            $table->text('description');
             $table->string('role');
             $table->timestamp('start-date')->nullable();
             $table->timestamp('end-date')->nullable();
             $table->timestamps();
 
-            $table->uuid('experience-id');
-            $table->foreign('experience-id')->references('id')->on('curriculum');
+            $table->uuid('curriculum_id');
+            $table->foreign('curriculum_id')->references('id')->on('curriculum');
 
         });
     }

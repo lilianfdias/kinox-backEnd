@@ -21,8 +21,8 @@ return new class extends Migration
             $table->boolean('revised')->default('false');
             $table->timestamps();
 
-            $table->uuid('curriculum-Id');
-            $table->foreign('curriculum-Id')->references('id')->on('users');
+            $table->uuid('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 
@@ -33,4 +33,5 @@ return new class extends Migration
     {
         Schema::dropIfExists('collaborator_curriculum');
     }
+    
 };
