@@ -9,6 +9,7 @@ use App\Models\User;
 use App\Services\curriculum\CreateCurriculumService;
 use App\Services\curriculum\DeleteCurriculumService;
 use App\Services\curriculum\GetAllCurriculumsService;
+use App\Services\curriculum\GetBuyUserIdService;
 use App\Services\curriculum\GetCurriculumByIdService;
 use App\Services\curriculum\GetCurriculumByIdWithExperienceService;
 use App\Services\curriculum\UpdateCurriculumService;
@@ -18,21 +19,6 @@ use Illuminate\Support\Facades\Auth;
 
 class CurriculumController extends Controller{
     public function create(CreateCurriculumRequest $request){
-
-        // $userData = $request->only(['user_id']);
-        // $curriculumData = $request->except(['user_id']);
-        // $createCurriculumService = new CreateCurriculumService();
-
-        // $curriculum = $createCurriculumService->execute($curriculumData);
-
-        // $user = User::find($userData['user_id']);
-        // if (!$user) {
-        
-        //     throw new AppError('Usuário não encontrado', 404);
-        // }
-        // $user->curriculum()->save($curriculum);
-        // return $curriculum;
-        // return $createCurriculumService->execute($request->all());
         $data = $request->all();
         $createCurriculumService = new CreateCurriculumService();
         $curriculum = $createCurriculumService->execute($data, Auth::id());
@@ -90,5 +76,10 @@ class CurriculumController extends Controller{
         $curriculumWithExperiences = $getCurriculumByIdWithExperienceService->execute($id);
 
     return $curriculumWithExperiences;
+    }
+    public function getByUserIdWithExperiences(){
+        $getByUserId = new GetBuyUserIdService();
+        $curriculumsByUserId = $getByUserId->execute(Auth::id());
+        return $curriculumsByUserId;
     }
 }

@@ -16,8 +16,8 @@ return new class extends Migration
 
             $table->text('description');
             $table->string('role');
-            $table->timestamp('start-date')->nullable();
-            $table->timestamp('end-date')->nullable();
+            $table->timestamp('start_date')->nullable();
+            $table->timestamp('end_date')->nullable();
             $table->timestamps();
 
             $table->uuid('curriculum_id');

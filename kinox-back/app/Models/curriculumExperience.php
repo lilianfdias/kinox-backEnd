@@ -14,8 +14,8 @@ class CurriculumExperience extends Model
     protected $fillable = [
         'role',
         'description',
-        'start-date',
-        'end-date',
+        'start_date',
+        'end_date',
         'curriculum_id'
     ];
 }

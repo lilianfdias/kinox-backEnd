@@ -19,15 +19,15 @@ class CreateCurriculumRequest extends FormRequest {
      */
     public function rules(): array {
         return [
-            'work-area'=> ['required'],
+            'work_area'=> ['required'],
             'description'=> ['required'],
-            'banner-image'=> [],
+            'banner_image'=> [],
         ];
     }
 
     public function messages(): array {
         return [
-            'work-area.required' => 'Área de atuação é obrigatório',
+            'work_area.required' => 'Área de atuação é obrigatório',
             'description.required' => 'Descrição é obrigatória',
         ];
     }

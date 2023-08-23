@@ -14,9 +14,9 @@ class Curriculum extends Model
     protected $table = 'curriculum';
 
     protected $fillable = [
-        'work-area',
+        'work_area',
         'description',
-        'banner-image',
+        'banner_image',
         'revised',
         'user_id'
     ];

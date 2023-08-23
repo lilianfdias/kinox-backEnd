@@ -19,9 +19,9 @@ class UpdateCurriculumRequest extends FormRequest {
      */
     public function rules(): array {
         return [
-            'work-area'=> [],
+            'work_area'=> [],
             'description'=> [],
-            'banner-image'=> [],
+            'banner_image'=> [],
             'revised'=>[]
         ];
     }

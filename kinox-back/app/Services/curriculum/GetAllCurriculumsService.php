@@ -11,7 +11,7 @@ use Error;
 class GetAllCurriculumsService{
     public function execute(){
        
-        $allCurriculums = Curriculum::all();
+        $allCurriculums = Curriculum::with('curriculum_experience')->get();
         
 
         return $allCurriculums;

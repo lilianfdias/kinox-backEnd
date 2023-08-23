@@ -21,8 +21,8 @@ class UpdateExperienceRequest extends FormRequest {
         return [
             'role'=> [],
             'description'=> [],
-            'start-date'=> [],
-            'end-date'=>[]
+            'start_date'=> [],
+            'end_date'=>[]
         ];
     }
 

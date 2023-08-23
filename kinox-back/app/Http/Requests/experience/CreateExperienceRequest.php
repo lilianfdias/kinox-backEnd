@@ -21,8 +21,8 @@ class CreateExperienceRequest extends FormRequest {
         return [
             'role'=> ['required'],
             'description'=> ['required'],
-            'start-date'=> ['required'],
-            'end-date'=>[]
+            'start_date'=> ['required'],
+            'end_date'=>[]
         ];
     }
 
@@ -30,7 +30,7 @@ class CreateExperienceRequest extends FormRequest {
         return [
             'role.required' => 'Cargo é obrigatório',
             'description.required' => 'Descrição é obrigatória',
-            'start-date.required' => 'Data de início é obrigatória',
+            'start_date.required' => 'Data de início é obrigatória',
         ];
     }
 }

@@ -39,6 +39,7 @@ Route::middleware('jwt.verify')->group(function(){
     Route::patch('/users/{id}',[UserController::class,'update']);
     
     Route::post('/curriculum',[CurriculumController::class,'create']);
+    Route::get('/curriculumuser',[CurriculumController::class,'getByUserIdWithExperiences']);
     Route::patch('/curriculum/{id}',[CurriculumController::class,'update']);
     Route::delete('/curriculum/{id}',[CurriculumController::class,'delete']);
     

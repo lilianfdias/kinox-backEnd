@@ -15,9 +15,9 @@ return new class extends Migration
             $table->uuid('id');
             $table->primary('id');
 
-            $table->string('work-area');
+            $table->string('work_area');
             $table->text('description');
-            $table->string('banner-image');
+            $table->string('banner_image')->nullable();
             $table->boolean('revised')->default('false');
             $table->timestamps();
 

@@ -12,12 +12,15 @@ use Illuminate\Support\Facades\Log;
 class CreateCurriculumService{
     public function execute(array $data, string $userid){
 
-        $roleFound = Curriculum::firstWhere('work-area',$data['work-area']);
+        $cvUser = Curriculum::where('user_id', $userid)->get();
 
-        if(!is_null($roleFound)){
-            Log::error('Curriculum já cadastrado');
-            throw new AppError ('Área de atuação já cadastrada',400);
-        }
+        for ($i = 0; $i < count($cvUser); $i++) {
+            if ($cvUser[$i]->work_area === $data['work_area']) {
+                Log::error('Área de atuação já cadastrada');
+                throw new AppError('Área de atuação já cadastrada', 400);
+            }
+        };
+
     
         $u = User::find($userid);
 
